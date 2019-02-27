@@ -6,7 +6,7 @@ import {
   buildFormGroupTemplate,
   formatFormData,
   getControl
-  } from './shared/form-group.functions';
+} from './shared/form-group.functions';
 import { buildLayout, getLayoutNode } from './shared/layout.functions';
 import { buildSchemaFromData, buildSchemaFromLayout, removeRecursiveReferences } from './shared/json-schema.functions';
 import { enValidationMessages } from './locale/en-validation-messages';
@@ -15,7 +15,7 @@ import {
   forEach,
   hasOwn,
   toTitleCase
-  } from './shared/utility.functions';
+} from './shared/utility.functions';
 import { frValidationMessages } from './locale/fr-validation-messages';
 import {
   hasValue,
@@ -23,7 +23,7 @@ import {
   isDefined,
   isEmpty,
   isObject
-  } from './shared/validator.functions';
+} from './shared/validator.functions';
 import { Injectable } from '@angular/core';
 import { JsonPointer } from './shared/jsonpointer.functions';
 import { Subject } from 'rxjs';
@@ -45,7 +45,7 @@ export class JsonSchemaFormService {
   AngularSchemaFormCompatibility = false;
   tpldata: any = {};
 
-  ajvOptions: any = { allErrors: true, jsonPointers: true, unknownFormats: 'ignore' };
+  ajvOptions: any = { allErrors: true, jsonPointers: true, unknownFormats: 'ignore', $data: true };
   ajv: any = new Ajv(this.ajvOptions); // AJV: Another JSON Schema Validator
   validateFormData: any = null; // Compiled AJV function to validate active form's schema
 
