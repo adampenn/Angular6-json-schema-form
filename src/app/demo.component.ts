@@ -26,10 +26,11 @@ import { JsonPointer } from 'angular7-json-schema-form';
 })
 export class DemoComponent implements OnInit {
   examples: any = Examples;
-  languageList: any = ['en', 'fr'];
+  languageList: any = ['en', 'fr', 'es'];
   languages: any = {
     'en': 'English',
     'fr': 'French',
+    'es': 'Spanish',
   };
   frameworkList: any = ['material-design', 'bootstrap-3', 'bootstrap-4', 'no-framework'];
   frameworks: any = {
