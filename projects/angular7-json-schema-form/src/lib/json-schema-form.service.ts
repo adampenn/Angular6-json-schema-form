@@ -27,6 +27,8 @@ import {
 import { Injectable } from '@angular/core';
 import { JsonPointer } from './shared/jsonpointer.functions';
 import { Subject } from 'rxjs';
+import { esValidationMessages } from './locale/es-validation-messages';
+import { ValidationMessagesUtil } from './shared/validation-messages-util';
 
 
 
@@ -129,10 +131,19 @@ export class JsonSchemaFormService {
     this.setLanguage(this.language);
   }
 
+
   setLanguage(language: string = 'en-US') {
     this.language = language;
-    const validationMessages = language.slice(0, 2) === 'fr' ?
-      frValidationMessages : enValidationMessages;
+    const languageValidationMessages = {
+        fr: frValidationMessages,
+        en: enValidationMessages,
+        es: esValidationMessages
+    };
+    const languageCode = language.slice(0, 2);
+
+    const validationMessages = languageValidationMessages[languageCode];
+    ValidationMessagesUtil.setValidationMessages(validationMessages);
+
     this.defaultFormOptions.defautWidgetOptions.validationMessages =
       _.cloneDeep(validationMessages);
   }

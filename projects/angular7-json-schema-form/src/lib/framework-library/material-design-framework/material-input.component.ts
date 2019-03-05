@@ -9,9 +9,11 @@ import { JsonSchemaFormService } from '../../json-schema-form.service';
     <mat-form-field
       [class]="options?.htmlClass || ''"
       [floatLabel]="options?.floatLabel || (options?.notitle ? 'never' : 'auto')"
-      [style.width]="'100%'">
+      [style.width]="'100%'"
+      [appearance]="options?.appearance">
       <span matPrefix *ngIf="options?.prefix || options?.fieldAddonLeft"
         [innerHTML]="options?.prefix || options?.fieldAddonLeft"></span>
+      <mat-label *ngIf= "options?.appearance === 'outline'">{{options?.title}}</mat-label>
       <input matInput *ngIf="boundControl"
         [formControl]="formControl"
         [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"

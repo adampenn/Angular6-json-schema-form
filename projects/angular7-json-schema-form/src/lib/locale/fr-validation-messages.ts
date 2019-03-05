@@ -1,4 +1,5 @@
 export const frValidationMessages: any = { // French error messages
+  noneOption: 'Aucune',
   required: 'Est obligatoire.',
   minLength: 'Doit avoir minimum {{minimumLength}} caractères (actuellement: {{currentLength}})',
   maxLength: 'Doit avoir maximum {{maximumLength}} caractères (actuellement: {{currentLength}})',

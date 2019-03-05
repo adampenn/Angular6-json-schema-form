@@ -1,6 +1,6 @@
 {
   "layout": [
-    { "type": "section", "title": "Name", "required": true,
+    { "type": "section", "title": "Name", "required": true,"appearance":"outline",
       "items": [
         "first_name",
         "last_name"
