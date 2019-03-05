@@ -1,4 +1,5 @@
 export const esValidationMessages: any = { // Default English error messages
+  noneOption: 'Ninguna',
   required: 'Este campo es requerido.',
   minLength: 'Debe tener {{minimumLength}} caracteres o más (longitud actual: {{currentLength}})',
   maxLength: 'Debe tener {{maximumLength}} caracteres o menos (longitud actual: {{currentLength}})',

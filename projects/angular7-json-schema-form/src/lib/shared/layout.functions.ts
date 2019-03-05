@@ -24,6 +24,7 @@ import {
   } from './validator.functions';
 import { JsonPointer } from './jsonpointer.functions';
 import { TitleMapItem } from '../json-schema-form.service';
+import { ValidationMessagesUtil } from './validation-messages-util';
 
 
 
@@ -1061,7 +1062,7 @@ export function buildTitleMap(
     }
   }
   if (!fieldRequired && !hasEmptyValue) {
-    newTitleMap.unshift({ name: '<em>None</em>', value: null });
+    newTitleMap.unshift({ name: '<em>' + ValidationMessagesUtil.getValidationMessages().noneOption + '</em>', value: null });
   }
   return newTitleMap;
 }

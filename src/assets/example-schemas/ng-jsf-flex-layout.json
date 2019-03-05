@@ -39,25 +39,25 @@
     "required": [ "last_name" ]
   },
   "layout": [
-    { "type": "flex", "flex-flow": "row wrap", "items": [ "first_name", "last_name" ] },
-    { "key": "address.street_1", "title": "Address", "placeholder": "Street" },
-    { "key": "address.street_2", "notitle": true },
+    { "type": "flex", "flex-flow": "row wrap", "items": [ {"key":"first_name","appearance":"outline"}, {"key":"last_name","appearance":"outline"} ] },
+    { "key": "address.street_1", "title": "Address", "placeholder": "Street","appearance":"outline" },
+    { "key": "address.street_2", "notitle": true ,"appearance":"outline"},
     { "type": "div",
       "display": "flex",
       "flex-direction": "row",
       "items": [
         { "key": "address.city", "flex": "3 3 150px",
-          "notitle": true, "placeholder": "City"
+          "notitle": true, "placeholder": "City","appearance":"outline"
         },
         { "key": "address.state", "flex": "1 1 50px",
-          "notitle": true, "placeholder": "State"
+          "notitle": true, "placeholder": "State","appearance":"outline"
         },
         { "key": "address.zip_code", "flex": "2 2 100px",
-          "notitle": true, "placeholder": "Zip Code"
+          "notitle": true, "placeholder": "Zip Code","appearance":"outline"
         }
       ]
     },
-    { "key": "birthday", "type": "date" },
+    { "key": "birthday", "type": "date" ,"appearance":"outline"},
     { "key": "phone_numbers",
       "type": "array",
       "listItems": 3,
@@ -67,10 +67,10 @@
         "flex-direction": "row",
         "items": [
           { "key": "phone_numbers[].type", "flex": "1 1 50px",
-            "notitle": true, "placeholder": "Type"
+            "notitle": true, "placeholder": "Type","appearance":"outline"
           },
           { "key": "phone_numbers[].number", "flex": "4 4 200px",
-            "notitle": true, "placeholder": "Phone Number"
+            "notitle": true, "placeholder": "Phone Number","appearance":"outline"
           }
         ]
       } ]
@@ -79,7 +79,7 @@
       "title": "Notes",
       "expandable": true,
       "expanded": false,
-      "items": [ { "key": "notes", "type": "textarea", "notitle": true } ]
+      "items": [ { "key": "notes", "type": "textarea", "notitle": true ,"appearance":"outline"} ]
     }
   ],
   "data": {

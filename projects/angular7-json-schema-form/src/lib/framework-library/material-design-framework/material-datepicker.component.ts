@@ -7,9 +7,10 @@ import { dateToString, stringToDate } from '../../shared';
   // tslint:disable-next-line:component-selector
   selector: 'material-datepicker-widget',
   template: `
-    <mat-form-field [style.width]="'100%'">
+    <mat-form-field [style.width]="'100%'" [appearance]="options?.appearance">
       <span matPrefix *ngIf="options?.prefix || options?.fieldAddonLeft"
         [innerHTML]="options?.prefix || options?.fieldAddonLeft"></span>
+      <mat-label *ngIf= "options?.appearance === 'outline'">{{options?.title}}</mat-label>
       <input matInput *ngIf="boundControl"
         [formControl]="formControl"
         [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
