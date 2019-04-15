@@ -438,6 +438,8 @@ export function formatFormData(
               JsonPointer.set(formattedData, `${dataPointer}/${key}`, {});
             }
           });
+        } else if (schemaType === 'array' && !returnEmptyFields){
+          JsonPointer.set(formattedData, dataPointer, []);
         }
 
         // Finish incomplete 'date-time' entries
