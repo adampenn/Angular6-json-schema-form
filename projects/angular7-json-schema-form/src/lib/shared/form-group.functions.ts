@@ -5,7 +5,7 @@ import {
   FormControl,
   FormGroup,
   ValidatorFn
-  } from '@angular/forms';
+} from '@angular/forms';
 import { forEach, hasOwn } from './utility.functions';
 import { getControlValidators, removeRecursiveReferences } from './json-schema.functions';
 import {
@@ -20,7 +20,7 @@ import {
   SchemaPrimitiveType,
   toJavaScriptType,
   toSchemaType
-  } from './validator.functions';
+} from './validator.functions';
 import { JsonPointer, Pointer } from './jsonpointer.functions';
 import { JsonValidators } from './json.validators';
 
@@ -438,8 +438,12 @@ export function formatFormData(
               JsonPointer.set(formattedData, `${dataPointer}/${key}`, {});
             }
           });
-        } else if (schemaType === 'array' && !returnEmptyFields){
-          JsonPointer.set(formattedData, dataPointer, []);
+        } else if (schemaType === 'array') {
+          let newValue = value;
+          if ((!newValue || newValue.length < 1) && returnEmptyFields) {
+            newValue = [];
+          }
+          JsonPointer.set(formattedData, dataPointer, newValue);
         }
 
         // Finish incomplete 'date-time' entries
@@ -455,7 +459,11 @@ export function formatFormData(
             JsonPointer.set(formattedData, dataPointer, `${value}:00:00:00`);
           }
         }
-      } else if (typeof value !== 'object' || isDate(value) ||
+      }
+      else if (typeof value === 'string') {
+
+      }
+      else if (typeof value !== 'object' || isDate(value) ||
         (value === null && returnEmptyFields)
       ) {
         console.error('formatFormData error: ' +
